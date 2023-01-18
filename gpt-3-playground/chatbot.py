@@ -9,7 +9,8 @@ API_KEY = os.getenv('OPENAI_API_KEY')
 # Here are the different models: https://beta.openai.com/docs/models/gpt-3
 models = ["text-davinci-003", "text-curie-001", "text-babbage-001", "text-ada-001"]
 
-reference_text = "The quick brown fox jumps over the lazy dog."
+# An example prompt to use for performance evaluation
+example_prompt = "The quick brown fox jumps over the lazy dog."
 
 
 def ask(input_question):
@@ -17,7 +18,7 @@ def ask(input_question):
         model=models[0],
         prompt=input_question,
         max_tokens=100,  # controls how long the answer is
-        temperature=0.5,  # controls how create the answer is
+        temperature=0.5,  # controls how creative the answer is
         api_key=API_KEY
     )
     ai_answer = response.choices[0].text
